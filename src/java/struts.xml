@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.multipart.maxSize" value="1000000" />
+
+    
+    <package name="inicio" namespace="/" extends="struts-default,jasperreports-default,json-default"> 
+        
+       
+        <action name="iniciarSesion" method="iniciarSesion" class="control.sesion.ControlSesion">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="iniciarSesionApp" method="iniciarSesionApp" class="control.sesion.ControlSesion">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="cerrarSesion" method="cerrarSesion" class="control.sesion.ControlSesion">
+            <result name="success">/vista/login.jsp</result>
+        </action>
+        
+        <action name="cargarUsuarioSession" method="cargarUsuarioSession" class="control.sesion.ControlSesion">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <!--        comienza control usuario-->
+        <action name="registrarUsuarioAdministrador" method="registrarUsuarioAdministrador" class="control.usuario.ControlUsuario">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="cambiarContrasena" method="cambiarContrasena" class="control.usuario.ControlUsuario">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="cambiarMiContrasena" method="cambiarMiContrasena" class="control.usuario.ControlUsuario">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="cambiarMiContrasenaApp" method="cambiarMiContrasenaApp" class="control.usuario.ControlUsuario">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+       
+        <action name="actualizarDatosUsuario" method="actualizarDatosUsuario" class="control.usuario.ControlUsuario">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+       
+        <action name="actualizarDatosUsuarioApp" method="actualizarDatosUsuarioApp" class="control.usuario.ControlUsuario">
+            <result type="stream">
+                <param name="contentType">text/html</param>
+                <param name="inputName">inputStream</param>
+            </result>
+        </action>
+        
+        <!--        termina control usuario-->
+        
+        <!--        inicia encuestras-->
+        <action name="consultarEncuestas" method="consultarEncuestas" class="control.encuesta.ControlEncuesta">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        
+        <action name="consultaGeneralUnaEncuesta" method="consultaGeneralUnaEncuesta" class="control.encuesta.ControlEncuesta">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+       
+        
+        <action name="cambiarEstatusEncuesta" method="cambiarEstatusEncuesta" class="control.encuesta.ControlEncuesta">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="consultarUnaEncuesta" method="consultarUnaEncuesta" class="control.encuesta.ControlEncuesta">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="consultarEncuestasActivas" method="consultarEncuestasActivas" class="control.encuesta.ControlEncuesta">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="acualizarEncuesta" method="acualizarEncuesta" class="control.encuesta.ControlEncuesta">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="registarEncuesta" method="registarEncuesta" class="control.encuesta.ControlEncuesta">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <!--        inicio-promotor-->
+        <action name="registrarPromotor" method="registrarPromotor" class="control.usuario.ControlUsuario">
+            <result type="stream">
+                <param name="contentType">text/html</param>
+                <param name="inputName">inputStream</param>
+            </result> 
+        </action>
+        
+        <action name="consultarPromotores" method="consultarPromotores" class="control.usuario.ControlUsuario">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="cambiarEstatusPromotor" method="cambiarEstatusPromotor" class="control.usuario.ControlUsuario">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+       
+        
+        <action name="enviarCodigoRecuperacion" method="enviarCodigoRecuperacion" class="utilidades.MailManager">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="existeCorreoApp" method="existeCorreoApp" class="utilidades.MailManager">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        
+        
+        
+        
+        <!--         verificar-->
+
+        <action name="consultarEstadosConMunicipios" method="consultarEstadosConMunicipios" class="control.estado.ControlEstado">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="consultarEstados" method="consultarEstados" class="control.estado.ControlEstado">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="cambiarEstatusEstado" method="cambiarEstatusEstado" class="control.estado.ControlEstado">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="consultarMunicipiosEstado" method="consultarMunicipiosEstado" class="control.estado.ControlEstado">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        
+        <action name="consultarMunicipiosEstadoJSON" method="consultarMunicipiosEstadoJSON" class="control.estado.ControlEstado">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="consultarMunicipios" method="consultarMunicipios" class="control.municipio.ControlMunicipio">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="consultarDistritos" method="consultarDistritos" class="control.distrito.ControlDistrito">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="registrarEntrevista" method="registrarEntrevista" class="control.entrevista.ControlEntrevista">
+            <result type="stream">
+                <param name="contentType">text/html</param>
+                <param name="inputName">inputStream</param>
+            </result> 
+        </action>
+        
+        <action name="consultarDistritoMunicipiosId" method="consultarDistritoMunicipiosId" class="control.controldistritomunicipio.ControlDistritoMunicipio">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="consultarMunicipiosEstado" method="consultarMunicipiosEstado" class="control.estado.ControlEstado">
+            <result name="success">/vista/inicio/municipio/administracionMunicipio.jsp</result>
+            <result name="error">/vista/inicio/estado/administracionEstado.jsp</result>
+        </action>
+        
+        <action name="consultarEntrevistasDeEncuesta" method="consultarEntrevistasDeEncuesta" class="control.entrevista.ControlEntrevista">
+            <result name="success">/vista/inicio/entrevista/entrevistasPorEncuesta.jsp</result>
+            <result name="error">/vista/inicio/inicio.jsp</result>
+        </action>
+        
+        <action name="goInicio" method="goInicio" class="control.encuesta.ControlEncuesta">
+            <result name="success">/vista/inicio/inicio.jsp</result>
+        </action>
+        
+        <action name="goPromotores" method="goPromotores" class="control.usuario.ControlUsuario">
+            <result name="success">/vista/inicio/promotores.jsp</result>
+        </action>
+        
+        <action name="goEstados" method="goEstados" class="control.estado.ControlEstado">
+            <result name="success">/vista/inicio/estado/administracionEstado.jsp</result>
+        </action>
+        
+        <action name="reporteEntrevistasEstado" method="reporteEntrevistasEstado" class="control.reporte.ControlReporte">
+            <result name="error"></result>
+            <result name="success" type="jasper">
+                <param name="location">/vista/reportes/EntrevistasEncuesta.jasper</param>
+                <param name="reportParameters">parametro</param>
+                <param name="dataSource">mySource</param>
+                <param name="connection">conexion</param>
+                <param name="format">XLS</param>
+                <param name="contentDisposition">attachment;filename=${nombreReporte}</param>
+            </result>
+        </action>
+        
+        <action name="reporteEncuestaMunicipio" method="reporteEncuestaMunicipio" class="control.reporte.ControlReporte">
+            <result name="error"></result>
+            <result name="success" type="jasper">
+                <param name="location">/vista/reportes/EntrevistasEncuestaPorMunicipio.jasper</param>
+                <param name="reportParameters">parametro</param>
+                <param name="dataSource">mySource</param>
+                <param name="connection">conexion</param>
+                <param name="format">XLS</param>
+                <param name="contentDisposition">attachment;filename=${nombreReporte}</param>
+            </result>
+        </action>
+        
+        <action name="reporteEncuestaDistrito" method="reporteEncuesta Distrito" class="control.reporte.ControlReporte">
+            <result name="error"></result>
+            <result name="success" type="jasper">
+                <param name="location">/vista/reportes/EntrevistasEncuestaPorDistrito.jasper</param>
+                <param name="reportParameters">parametro</param>
+                <param name="dataSource">mySource</param>
+                <param name="connection">conexion</param>
+                <param name="format">XLS</param>
+                <param name="contentDisposition">attachment;filename=${nombreReporte}</param>
+            </result>
+        </action>
+        
+        <action name="reporteEntrevistasPromotorEncuesta" method="reporteEntrevistasPromotorEncuesta" class="control.reporte.ControlReporte">
+            <result name="notReport"></result>
+            <result name="success" type="jasper">
+                <param name="location">/vista/reportes/EntrevistasPromotorEncuesta.jasper</param>
+                <param name="reportParameters">parametro</param>
+                <param name="dataSource">mySource</param>
+                <param name="connection">conexion</param>
+                <param name="format">XLS</param>
+                <param name="contentDisposition">attachment;filename=${nombreReporte}</param>
+            </result>
+        </action>
+        
+        <action name="eliminarEncuesta" method="eliminarEncuesta" class="control.encuesta.ControlEncuesta">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+
+        <action name="eliminarUsuario" method="eliminarUsuario" class="control.usuario.ControlUsuario">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+
+        <action name="registrarEstado" method="registrarEstado" class="control.estado.ControlEstado">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+
+        <action name="consultarUnEstado" method="consultarUnEstado" class="control.estado.ControlEstado">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+
+        <action name="actualizarEstado" method="actualizarEstado" class="control.estado.ControlEstado">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+
+        <action name="eliminarEstado" method="eliminarEstado" class="control.estado.ControlEstado">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+
+        <action name="cambiarEstatusMunicipio" method="cambiarEstatusMunicipio" class="control.municipio.ControlMunicipio">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+
+        <action name="consultarMunicipio" method="consultarMunicipio" class="control.municipio.ControlMunicipio">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+
+        <action name="acualizarMunicipio" method="acualizarMunicipio" class="control.municipio.ControlMunicipio">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+
+        <action name="eliminarMunicipio" method="eliminarMunicipio" class="control.municipio.ControlMunicipio">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="registrarMunicipio" method="registrarMunicipio" class="control.municipio.ControlMunicipio">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="consultarMunicipiosAsignadosAdistritos" method="consultarMunicipiosAsignadosAdistritos" class="control.estado.ControlEstado">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        
+        <action name="eliminarDistritoMunicipio" method="eliminarDistritoMunicipio" class="control.controldistritomunicipio.ControlDistritoMunicipio">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="registrarDistritoMunicipio" method="registrarDistritoMunicipio" class="control.controldistritomunicipio.ControlDistritoMunicipio">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        <action name="distritosMunicipiosEstado" method="distritosMunicipiosEstado" class="control.estado.ControlEstado">
+            <result name="success">/vista/inicio/distritomunicipio/distritoMunicipio.jsp</result>
+        </action>
+
+        <action name="reporteEntrevistasEstadoJSON" method="reporteEntrevistasEstadoJSON" class="control.reporte.ControlReporte">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+
+        <action name="reporteEntrevistasPromotorEncuestaJSON" method="reporteEntrevistasPromotorEncuestaJSON" class="control.reporte.ControlReporte">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+
+        <action name="reporteEncuestaMunicipioJSON" method="reporteEncuestaMunicipioJSON" class="control.reporte.ControlReporte">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        <action name="reporteEncuestaDistritoJSON" method="reporteEncuestaDistritoJSON" class="control.reporte.ControlReporte">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
+        
+    </package>
+    
+<!--   <include file="administracion.xml"/>-->
+</struts>
+    

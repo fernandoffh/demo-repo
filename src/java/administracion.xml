@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>  
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.multipart.maxSize" value="1000000" />
+    <package name="administracion" namespace="/" extends="struts-default,jasperreports-default,json-default">
+         
+        <interceptors>
+            <interceptor name="filtroSesion" class="filtro.InterceptorSesion" />
+            <interceptor-stack name="stackPersonal">
+                <interceptor-ref name="filtroSesion"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="stackPersonal"/>
+        <global-results>
+            <result name="nologin">/vista/login.jsp</result>
+        </global-results> 
+    </package>
+ 
+</struts>
